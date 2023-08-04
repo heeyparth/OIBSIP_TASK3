@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celsius to Fahrenheit Converter</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+        }
+
+        .container h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .input-group label {
+            margin-right: 10px;
+            color: #555;
+            font-size: 16px;
+        }
+
+        .button {
+            text-align: center;
+        }
+
+        .button button {
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .button button:hover {
+            background-color: #ff8500;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Celsius to Fahrenheit Converter</h1>
+
+        <div class="input-group">
+            <label for="celcius">Celsius</label>
+            <input type="number" id="celcius" placeholder="Enter Celsius temperature">
+        </div>
+
+        <div class="input-group">
+            <label for="Fahrenheit">Fahrenheit</label>
+            <input type="number" id="Fahrenheit" placeholder="Result in Fahrenheit" disabled>
+        </div>
+
+        <div class="button">
+            <button id="convertBtn">Convert</button>
+        </div>
+    </div>
+
+    <script>
+        let celInput = document.querySelector('#celcius');
+        let ferInput = document.querySelector('#Fahrenheit');
+        let convertBtn = document.querySelector('#convertBtn');
+
+        function convertTemperature() {
+            let cTemp = parseFloat(celInput.value);
+            let fTemp = (cTemp * 9 / 5) + 32;
+
+            ferInput.value = fTemp.toFixed(2);
+        }
+
+        convertBtn.addEventListener('click', convertTemperature);
+    </script>
+</body>
+
+</html>
+
